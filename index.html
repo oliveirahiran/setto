@@ -195,14 +195,66 @@
   background-size: 20px 20px;
    
 }
-        
+        header {
+            background: url('./assets/hero2.png') no-repeat center center;
+        background-size: cover;
+        }
+        .polo-ead {
+            background: url('./assets/polo-ead.png') no-repeat center center;
+        background-size: cover;
+        background-position-y: 70%;
+        position: relative;
+        }
+.polo-bg {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+  .polo-bg::before, .polo-ead::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+    z-index: 1; /* Ensure overlay is above the background image but below content */
+  }
+
+  .polo-bg > *, .polo-ead > * { /* Target content inside the div */
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+  }
+        .absolute.inset-0.bg-pattern-black {
+            background: black;
+        }
+        @media screen and (max-width: 768px){
+            header{background-position-x: 85%;}
+        }
+        .bg-white-custom {
+            background: #f9f9f9;
+            padding: 10px 0;
+            margin-bottom: 24px;
+        }
+        .logo-top {
+            max-height: 60px;
+        }
+        .polo-bg {
+            background: url('./assets/polo.png') no-repeat center center;
+            background-size: cover;}
+            .hero {
+    /* padding-top: 60px; */
+}
     </style>
 </head>
 <body class="bg-white text-gray-800">
     <!-- Header Section -->
-    <header class="bg-gradient-to-r from-primary to-dark text-white pt-10 pb-0 lg:pt-20 lg:pb-0 relative overflow-hidden">
-        <div class="absolute inset-0 bg-pattern opacity-10"></div>
-        <div class="container mx-auto px-4 relative z-10 max-w-[1240px] w-full">
+    <header class=" text-white pb-10 lg:pb-20  relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern-black opacity-70 lg:opacity-30"></div>
+        <div class="container mx-auto px-4 relative z-10 w-full flex justify-center align-center bg-white-custom">
+            <img src="./assets/logo.png" class="logo-top" alt="">
+        </div>
+        <div class="hero container mx-auto px-4 relative z-10 max-w-[1240px] w-full">
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-2/3 mb-10 lg:mb-0 lg:pr-10">
                     <h1 class="text-4xl lg:text-6xl font-bold mb-6 animate-fade-in">TRANSFORME SUA VISÃO EMPREENDEDORA EM UM NEGÓCIO DE SUCESSO</h1>
@@ -215,7 +267,7 @@
                     <p class="text-lg mb-8">O Futuro da Educação Está Aqui. E Você Pode Ser Parte Dele.</p>
                     <a href="#form" class="btn-primary inline-block">QUERO SER PARCEIRO</a>
                 </div>
-                <div class="lg:w-1/3 flex justify-center">
+                <div class="lg:w-1/3 hidden justify-center">
                     <img src="./assets/1.webp" alt="Parceria Unisa" class="rounded-lg floating">
                 </div>
             </div>
@@ -228,10 +280,14 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold mb-4">O mercado de Educação a Distância no Brasil movimenta bilhões e não para de crescer.</h2>
                 <p class="text-xl">São mais de <span class="font-bold text-primary">3,3 milhões</span> de novos ingressantes por ano que escolhem a Educação a Distância como modalidade preferida.</p>
+                <p class="text-2xl font-bold mt-10 mb-2">E se você pudesse lucrar com essa revolução educacional?</p>
+                <p class="text-lg max-w-[800px] mx-auto">Com quase 60 anos de tradição e <span class="font-bold text-primary">nota máxima no MEC</span>, a Universidade Santo Amaro - Unisa oferece a oportunidade perfeita para empreendedores visionários construírem um negócio sólido e rentável.</p>
             </div>
-            <div class="flex justify-center">
-
-                <div class="lg:w-2/3 mb-10 lg:mb-0 lg:pr-10">
+            <div class="flex justify-center items-center">
+                <div class="hidden md:flex lg:w-1/2 mb-10 lg:mb-0 justify-center items-end">
+                    <img src="./assets/brasil.png" alt="Mercado EAD" class="object-cover rounded-lg floating">
+                </div>
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-[400px] w-full mx-auto">
                     <div class="bg-white p-8 rounded-xl shadow-md text-center card-hover scroll-animate delay-1">
                         <div class="text-5xl font-bold text-primary mb-4">55+</div>
@@ -254,17 +310,15 @@
                     </div>
                 </div>
                 </div>
-                <div class="hidden md:flex lg:w-1/3 mb-10 lg:mb-0 justify-center items-end">
-                    <img src="./assets/5-1.png" alt="Mercado EAD" class="object-cover rounded-lg floating">
-                </div>
+                
             </div>
         </div>
     </section>
 
     <!-- Why Invest Section -->
-    <section class="pt-16 pb-0  bg-gradient-to-r from-primary to-dark text-white">
-        <div class="container mx-auto px-4 scroll-animate max-w-[1240px] w-full">
-            <div class="text-center mb-16">
+    <section class="polo-ead pt-16 pb-0 text-white">
+        <div class="container mx-auto px-4 scroll-animate max-w-[960px] w-full">
+            <div class="bg-gray-50 p-6 rounded-xl mb-6 text-primary text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold mb-4"><i class="fa-thin fa-bullseye-arrow mr-2"></i>POR QUE INVESTIR EM UM POLO EAD UNISA?</h2>
                 <p class="text-xl">Uma oportunidade única para empreendedores visionários</p>
             </div>
@@ -272,13 +326,11 @@
         </div>
         <div class="container flex flex-col md:flex-row mx-auto px-4 scroll-animate max-w-[1240px] w-full">
         
-        <div class="lg:w-1/2 md:order-[unset] order-2 flex flex-col mb-0 lg:mb-0 lg:pr-10">
-<img src="assets/3.webp" class="flex" alt="">
-        </div>
-        <div class="lg:w-1/2 mb-10 lg:mb-0">
-            <div>
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold text-white mb-4">RETORNO FINANCEIRO REAL</h3>
+        <div class="lg:w-1/2 flex flex-col mb-0 lg:mb-0 lg:pr-10">
+<!-- <img src="assets/3.webp" class="flex" alt=""> -->
+ <div class="flex-col md:flex-row justify-center items-center">
+                <div class="mb-8 bg-gray-50 p-6 rounded-xl mb-6 text-primary">
+                    <h3 class="text-2xl font-bold text-primary mb-4">RETORNO FINANCEIRO REAL</h3>
                     <ul class="list-disc pl-5 space-y-2">
                         <li>Ganhos de até <span class="font-bold">50%</span> do valor pago pelo aluno</li>
                         <li><span class="font-bold">4 entradas</span> por ano = mais oportunidades de captação</li>
@@ -287,16 +339,19 @@
                     </ul>
                 </div>
                 
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold text-white mb-4">ZERO TAXA DE ADESÃO</h3>
-                    <p>Diferente de outras instituições, aqui você não paga nada para se tornar parceiro. Todo o investimento vai direto para o seu negócio.</p>
+                <div class="bg-gray-50 p-6 rounded-xl mb-6 text-primary mb-8">
+                    <h3 class="text-2xl font-bold text-primary mb-4">ZERO TAXA DE ADESÃO</h3>
+                    <p>Diferente de outras instituições, aqui você <span class="font-bold">não paga nada</span> para se tornar parceiro. Todo o investimento vai direto para o seu negócio.</p>
                     
                 </div>
             </div>
+        </div>
+        <div class="md:mx-10 lg:w-1/2 flex justify-center items-center mb-10 lg:mb-0">
+           
             
-            <div>
-                <h3 class="text-2xl font-bold text-white mb-4">APOIO TOTAL PARA SEU SUCESSO</h3>
-                <div class="bg-gray-50 p-6 rounded-xl mb-6 text-primary">
+            <div class="w-full bg-gray-50 p-6 rounded-xl mb-6 text-primary">
+                <h3 class="text-2xl font-bold text-primary mb-4">APOIO TOTAL PARA SEU SUCESSO</h3>
+                <div class="">
                     <div class="flex items-start mb-4">
                         <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4">
                             <i class="fas fa-bullhorn text-white text-sm"></i>
@@ -311,8 +366,8 @@
                             <i class="fas fa-users text-white text-sm"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold">NIC - Núcleo de Incentivo à Captação</h4>
-                            <p>Time especializado trabalhando para você</p>
+                            <h4 class="font-bold">Executivos Dedicados</h4>
+                            <p>Time comercial focado no sucesso do seu negócio</p>
                         </div>
                     </div>
                     <div class="flex items-start mb-4">
@@ -333,6 +388,15 @@
                             <p>Ganhe até 10% a mais pelos seus resultados</p>
                         </div>
                     </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                            <i class="fas fa-award text-white text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Estudos Exclusivos</h4>
+                            <p>Avaliações de mercado e demandas para cada ação estratégica</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -344,33 +408,56 @@
         <div class="container mx-auto px-4 scroll-animate max-w-[1240px] w-full">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold mb-4">A FORÇA DA MARCA UNISA</h2>
-                <p class="text-xl">Tradição que inspira confiança e inovação que faz a diferença</p>
+                <!-- <p class="text-xl">Tradição que inspira confiança</p> -->
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
+                    <h3 class="text-2xl text-center font-bold text-primary mb-6">TRADIÇÃO QUE INSPIRA CONFIANÇA</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Quase 60 anos</div>
+                            <p>de história de inovação</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Nota máxima no MEC</div>
+                            <p>Conceito 5</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Pioneira no EAD</div>
+                            <p>desde a transmissão via satélite</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">+450 Polos</div>
+                            <p>em todo o Brasil</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
                     <h3 class="text-2xl text-center font-bold text-primary mb-6">PORTFÓLIO COMPLETO</h3>
                     <div class="grid grid-cols-2 gap-4 mb-8">
                         <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
-                            <div class="text-3xl font-bold text-primary mb-2">60+</div>
+                            <div class="text-2xl font-bold text-primary mb-2">+60</div>
                             <p>Cursos de Graduação EAD</p>
                         </div>
                         <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
-                            <div class="text-3xl font-bold text-primary mb-2">100+</div>
+                            <div class="text-2xl font-bold text-primary mb-2">+100</div>
                             <p>Cursos de Pós-Graduação</p>
                         </div>
                         <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
-                            <div class="text-3xl font-bold text-primary mb-2">600+</div>
-                            <p>Cursos Livres (muitos gratuitos)</p>
+                            <div class="text-2xl font-bold text-primary mb-2">+600</div>
+                            <p>Cursos Livres</p>
                         </div>
                         <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
-                            <div class="text-3xl font-bold text-primary mb-2">3</div>
-                            <p>Diferenciais únicos: Engenharia, Arquitetura e Saúde no EAD</p>
+                            <div class="text-2xl font-bold text-primary mb-2">Diferenciais Únicos</div>
+                            <p>Engenharia, Arquitetura e Saúde no EAD</p>
                         </div>
                     </div>
                 </div>
                 
-                <div>
+            </div>
+            <div class="flex justify-center items-center gap-12 mx-auto">
+                <div class="bg-gray-50 p-6 rounded-xl mb-6 text-primary shadow-xl">
                     <h3 class="text-2xl font-bold text-primary mb-6">INOVAÇÃO QUE FAZ A DIFERENÇA</h3>
                     <div class="space-y-4">
                         <div class="flex items-start">
@@ -411,12 +498,133 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                
+                
         </div>
     </section>
 
     <!-- Earnings Potential Section -->
-    <section class="py-16 bg-white bg-pattern">
+     <section class="py-16 bg-white bg-pattern">
+    <div class="container mx-auto px-4 max-w-[1240px] w-full">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-4">POTENCIAL DE GANHO REAL</h2>
+            <p class="text-xl">Cenário conservador - 1º ANO</p>
+        </div>
+        
+        <div class="hidden md:block">
+            <table class="min-w-full bg-white rounded-lg overflow-hidden mb-8 shadow-md">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th class="py-3 px-4 text-left">Período</th>
+                        <th class="py-3 px-4 text-center">Alunos</th>
+                        <th class="py-3 px-4 text-center">Mensalidade Média</th>
+                        <th class="py-3 px-4 text-center">Sua Receita (50%)</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="py-3 px-4">Jan-Dez</td>
+                        <td class="py-3 px-4 text-center">12</td>
+                        <td class="py-3 px-4 text-center">R$ 250</td>
+                        <td class="py-3 px-4 text-center font-bold">R$ 18.000</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="py-3 px-4">Abr-Dez</td>
+                        <td class="py-3 px-4 text-center">24</td>
+                        <td class="py-3 px-4 text-center">R$ 250</td>
+                        <td class="py-3 px-4 text-center font-bold">R$ 13.500</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4">Jul-Dez</td>
+                        <td class="py-3 px-4 text-center">36</td>
+                        <td class="py-3 px-4 text-center">R$ 250</td>
+                        <td class="py-3 px-4 text-center font-bold">R$ 9.000</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="py-3 px-4">Out-Dez</td>
+                        <td class="py-3 px-4 text-center">48</td>
+                        <td class="py-3 px-4 text-center">R$ 250</td>
+                        <td class="py-3 px-4 text-center font-bold">R$ 4.500</td>
+                    </tr>
+                    <tr class="bg-primary text-white font-bold">
+                        <td class="py-3 px-4 rounded-bl-lg">TOTAL ANO 1</td>
+                        <td class="py-3 px-4 text-center">48</td>
+                        <td class="py-3 px-4 text-center">-</td>
+                        <td class="py-3 px-4 text-center rounded-br-lg">R$ 45.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="block md:hidden space-y-4 mb-8">
+
+            <div class="bg-white rounded-lg p-4 shadow-xl">
+                <div class="font-bold text-lg mb-2">Período: Jan-Dez</div>
+                <div class="space-y-2 text-gray-700">
+                    <div class="flex justify-between items-center"><span>Alunos:</span> <span class="font-semibold">12</span></div>
+                    <div class="flex justify-between items-center"><span>Mensalidade Média:</span> <span class="font-semibold">R$ 250</span></div>
+                </div>
+                <div class="flex justify-between items-center pt-3 mt-3 border-t">
+                    <span class="font-bold">Sua Receita:</span> 
+                    <span class="font-bold text-primary text-lg">R$ 18.000</span>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-4 shadow-xl">
+                <div class="font-bold text-lg mb-2">Período: Abr-Dez</div>
+                <div class="space-y-2 text-gray-700">
+                    <div class="flex justify-between items-center"><span>Alunos:</span> <span class="font-semibold">24</span></div>
+                    <div class="flex justify-between items-center"><span>Mensalidade Média:</span> <span class="font-semibold">R$ 250</span></div>
+                </div>
+                <div class="flex justify-between items-center pt-3 mt-3 border-t">
+                    <span class="font-bold">Sua Receita:</span> 
+                    <span class="font-bold text-primary text-lg">R$ 13.500</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg p-4 shadow-xl">
+                <div class="font-bold text-lg mb-2">Período: Jul-Dez</div>
+                <div class="space-y-2 text-gray-700">
+                    <div class="flex justify-between items-center"><span>Alunos:</span> <span class="font-semibold">36</span></div>
+                    <div class="flex justify-between items-center"><span>Mensalidade Média:</span> <span class="font-semibold">R$ 250</span></div>
+                </div>
+                <div class="flex justify-between items-center pt-3 mt-3 border-t">
+                    <span class="font-bold">Sua Receita:</span> 
+                    <span class="font-bold text-primary text-lg">R$ 9.000</span>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-4 shadow-xl">
+                <div class="font-bold text-lg mb-2">Período: Out-Dez</div>
+                <div class="space-y-2 text-gray-700">
+                    <div class="flex justify-between items-center"><span>Alunos:</span> <span class="font-semibold">48</span></div>
+                    <div class="flex justify-between items-center"><span>Mensalidade Média:</span> <span class="font-semibold">R$ 250</span></div>
+                </div>
+                <div class="flex justify-between items-center pt-3 mt-3 border-t">
+                    <span class="font-bold">Sua Receita:</span> 
+                    <span class="font-bold text-primary text-lg">R$ 4.500</span>
+                </div>
+            </div>
+
+            <div class="bg-primary text-white rounded-lg p-4 shadow-lg font-bold">
+                <div class="text-lg mb-2">TOTAL ANO 1</div>
+                <div class="flex justify-between items-center pt-2">
+                    <span>Total de Alunos:</span> 
+                    <span>48</span>
+                </div>
+                <div class="flex justify-between items-center pt-3 mt-3 border-t border-white/30 text-xl">
+                    <span>Receita Total:</span> 
+                    <span>R$ 45.000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <p class="text-lg">E isso é só o começo. Polos consolidados faturam muito mais.</p>
+        </div>
+    </div>
+</section>
+    <section class="hidden py-16 bg-white bg-pattern">
         <div class="container mx-auto px-4 max-w-[1240px] w-full">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold mb-4">POTENCIAL DE GANHO REAL</h2>
@@ -473,16 +681,13 @@
             </div>
         </div>
     </section>
-    <section class="w-full flex justify-center align-center">
-        <img src="assets/4.webp" class="flex object-top object-cover w-full max-h-[85vh]" alt="">
-    </section>
 
     <!-- Categories Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 max-w-[1240px] w-full">
+    <section class="polo-bg py-16 bg-gray-50">
+        <div class=" container mx-auto px-4 max-w-[1240px] w-full">
             <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold mb-4">TRÊS CATEGORIAS, INFINITAS POSSIBILIDADES</h2>
-                <p class="text-xl">Escolha o modelo que melhor se adapta ao seu negócio</p>
+                <h2 class="text-white text-3xl lg:text-4xl font-bold mb-4">TRÊS CATEGORIAS, INFINITAS POSSIBILIDADES</h2>
+                <p class="text-xl text-white">Escolha o modelo que melhor se adapta ao seu negócio</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -565,7 +770,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <p class="text-lg">Você pode fazer upgrade a qualquer momento conforme seu negócio cresce.</p>
+                <p class="text-white text-lg">Você pode fazer upgrade a qualquer momento conforme seu negócio cresce.</p>
             </div>
         </div>
     </section>
@@ -638,25 +843,33 @@
                 <p class="text-xl">DADOS QUE COMPROVAM A OPORTUNIDADE:</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="counter text-5xl font-bold mb-4">4M+</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-start md:text-center">
+                    <div class=" text-5xl font-bold mb-4">+3,3M</div>
                     <p>novos ingressantes no EAD por ano</p>
                 </div>
                 
-                <div class="text-center">
-                    <div class="counter text-5xl font-bold mb-4">40%</div>
-                    <p>de crescimento anual na modalidade</p>
+                <div class="text-start md:text-center">
+                    <!-- <div class=" text-5xl font-bold mb-4">40%</div> -->
+                    <p class="text-xl font-bold">Modalidade deve ultrapassar a presencial no próximo Censo</p>
                 </div>
                 
-                <div class="text-center">
-                    <div class="counter text-5xl font-bold mb-4">100%</div>
-                    <p>tendência irreversível pós-pandemia</p>
+                <div class="text-start md:text-center">
+                    <!-- <div class=" text-5xl font-bold mb-4">100%</div> -->
+                    <p class="text-xl font-bold">Tendência irreversível pós-pandemia</p>
                 </div>
                 
-                <div class="text-center">
-                    <div class="counter text-5xl font-bold mb-4">∞</div>
-                    <p>profissionais buscam qualificação constante</p>
+                <div class="text-start md:text-center">
+                    <!-- <div class=" text-5xl font-bold mb-4">∞</div> -->
+                    <p class="text-xl font-bold">Profissionais buscam qualificação constante</p>
+                </div>
+                <div class="text-start md:text-center">
+                    <!-- <div class=" text-5xl font-bold mb-4">∞</div> -->
+                    <p class="text-xl font-bold">Empresas investindo na capacitação de equipes</p>
+                </div>
+                <div class="text-start md:text-center">
+                    <!-- <div class=" text-5xl font-bold mb-4">∞</div> -->
+                    <p class="text-xl font-bold">Pessoas em busca  de flexibilidade para estudar</p>
                 </div>
             </div>
             
@@ -700,7 +913,7 @@
                     </div>
                     <div>
                         <h3 class="font-bold mb-2">Tem visão de futuro</h3>
-                        <p>e enxerga o potencial do EAD</p>
+                        <p>e enxerga o potencial da EAD</p>
                     </div>
                 </div>
                 
@@ -724,7 +937,7 @@
                     </div>
                 </div>
                 
-                <div class="flex items-start hovered-element">
+                <!-- <div class="flex items-start hovered-element">
                     <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 hovered-element">
                         <i class="fas fa-check text-white text-sm"></i>
                     </div>
@@ -732,9 +945,64 @@
                         <h3 class="font-bold mb-2">Deseja diversificar</h3>
                         <p>seus investimentos</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
+    </section>
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 scroll-animate max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">DIFERENCIAIS EXCLUSIVOS UNISA</h2>
+                <!-- <p class="text-xl">Tradição que inspira confiança</p> -->
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl text-center font-bold text-primary mb-6">PARA SEU NEGÓCIO</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Sem taxa de adesão</div>
+                            <p>comece sem pagar nada</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Sistema Mercado</div>
+                            <p>Precificação inteligente e competitiva</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Múltiplas Entradas</div>
+                            <p>4 oportunidades por ano para captar</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Programa de Valorização</div>
+                            <p>Ganhe mais pelos seus resultados</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl text-center font-bold text-primary mb-6">PARA SEUS ALUNOS</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Cursos únicos</div>
+                            <p>como Engenharia e Arquitetura Ead
+                            </p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Metodologia inovadora</div>
+                            <p>com trilhas de aprendizagem</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Aulas práticas</div>
+                            <p>que ampliam sua vivência</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Diploma reconhecido</div>
+                            <p>de uma universidade nota máxima</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+             </div>
     </section>
 
     <!-- Final CTA Section -->
@@ -835,7 +1103,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p class="py-4">Não é obrigatório. Oferecemos treinamento completo e suporte contínuo para que você possa administrar seu polo com excelência, mesmo sem experiência prévia na área.</p>
+                        <p class="py-4">Não é obrigatório. Oferecemos treinamento completo e suporte contínuo</p>
                     </div>
                 </div>
                 
@@ -845,7 +1113,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p class="py-4">Depende da categoria escolhida. Temos opções para diferentes orçamentos, desde a modalidade Light com infraestrutura mínima até a Premium com todos os diferenciais. Nossa equipe pode apresentar um plano detalhado conforme suas possibilidades.</p>
+                        <p class="py-4">Não há taxa de adesão. Para a infraestrutura, depende da categoria escolhida. Temos opções para diferentes orçamentos.</p>
                     </div>
                 </div>
                 
@@ -855,7 +1123,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p class="py-4">Você fica com até 50% do valor pago pelo aluno, sem taxa de franquia. A divisão é transparente e calculada mensalmente, com relatórios detalhados disponíveis em nossa plataforma.</p>
+                        <p class="py-4">Você fica com até 50% do valor pago pelo aluno, sem taxa de franquia.</p>
                     </div>
                 </div>
                 
@@ -865,7 +1133,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p class="py-4">Não há limite. Muitos parceiros expandem para múltiplas cidades e estados, administrando uma rede de polos Unisa. Oferecemos condições especiais para parceiros que desejam crescer com múltiplas unidades.</p>
+                        <p class="py-4">Não há limite. Muitos parceiros expandem para múltiplas cidades.</p>
                     </div>
                 </div>
                 
@@ -875,7 +1143,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p class="py-4">Sem problema. Muitos parceiros trabalham com múltiplas marcas. A Unisa oferece um portfólio diferenciado que complementa outras ofertas educacionais, aumentando suas fontes de receita sem conflito de interesses.</p>
+                        <p class="py-4">Sem problema, desde que não seja no mesmo local.</p>
                     </div>
                 </div>
             </div>
@@ -893,20 +1161,20 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <h3 class="text-2xl font-bold mb-4">Universidade Santo Amaro - Unisa</h3>
-                    <p>Mais de 55 anos transformando vidas através da educação</p>
+                    <p>Tradição que conecta você ao futuro</p>
                 </div>
                 
                 <div class="flex space-x-4">
-                    <a href="#" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
+                    <a href="https://www.facebook.com/unisaoficial/?locale=pt_BR" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
+                    <a href="https://www.instagram.com/unisaoficial/" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
+                    <a href="https://br.linkedin.com/school/universidade-de-santo-amaro/" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
+                    <a href="https://www.youtube.com/@UnisaOficial" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
@@ -914,7 +1182,8 @@
             
             <div class="border-t border-gray-700 mt-8 pt-8 text-center">
                 <p>© 2023 Universidade Santo Amaro - Unisa. Todos os direitos reservados.</p>
-                <p class="mt-2">www.unisa.br | @unisaoficial</p>
+                <p class="mt-2"><a href="https://www.unisa.br/">www.unisa.br</a> | <a href="https://www.instagram.com/unisaoficial/" class="">
+                   @unisaoficial </a>
             </div>
         </div>
     </footer>
