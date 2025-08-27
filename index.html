@@ -1040,11 +1040,13 @@
                 <p class="text-xl  mx-auto">O mercado de EAD está explodindo. A Unisa está expandindo. Mas as vagas para novos parceiros são limitadas.</p>
                 <p class="text-lg  mx-auto mt-4">Cada região pode ter apenas um número restrito de polos para garantir o sucesso de todos os parceiros.</p>
                 <p class="text-lg font-bold  mx-auto mt-4">Não deixe outro empreendedor ocupar sua posição no mercado.</p>
+                <a href="#form" class=" mt-5 btn-primary inline-block">QUERO RECEBER MAIS INFORMAÇÕES</a>
             </div>
             
-            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl" id="form">
+            <div class="hidden max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl" id="form">
                 <h3 class="text-2xl font-bold text-center mb-8"></i>QUERO SER PARCEIRO UNISA</h3>
                 <p class="text-center mb-8">Preencha o formulário e nossa equipe entrará em contato em até 24h para apresentar todos os detalhes da parceria.</p>
+                
                 
                 <form class="space-y-6">
                     <div>
@@ -1215,6 +1217,43 @@
         </div>
     </footer>
 
+    <!-- Popup Modal -->
+<div id="popup-form-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 hidden">
+
+</div>
+
+<script>
+  // Popup logic
+  document.querySelectorAll('a[href="#form"], button[href="#form"]').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('popup-form-modal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    });
+  });
+
+  document.getElementById('close-popup-form').addEventListener('click', function() {
+    document.getElementById('popup-form-modal').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  });
+
+  // Fecha popup ao clicar fora do modal
+  document.getElementById('popup-form-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+  });
+
+  // Form submit (popup)
+  document.getElementById('popup-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Obrigado pelo seu interesse! Nossa equipe entrará em contato em até 24 horas.');
+    this.reset();
+    document.getElementById('popup-form-modal').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  });
+</script>
     <script>
         // Scroll animation observer
         const animateOnScroll = () => {

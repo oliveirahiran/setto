@@ -1,0 +1,1439 @@
+<?php
+/* Template Name: Parceiro Unisa */
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja Parceiro | Unisa</title>
+    <link rel="icon" type="image/x-icon" href="https://imgur.com/UgkEOgG">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/v4-font-face.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+    </noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap">
+    </noscript>
+    <style type="text/css">
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate.delay-1 {
+            transition-delay: 0.2s;
+        }
+
+        .scroll-animate.delay-2 {
+            transition-delay: 0.4s;
+        }
+
+        .scroll-animate.delay-3 {
+            transition-delay: 0.6s;
+        }
+
+        @font-face {
+            font-family: 'Lufga';
+            src: url('fonts/Lufga-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Lufga';
+            src: url('fonts/Lufga-Bold.woff2') format('woff2');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lufga', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #1E40AF 0%, #0C001E 100%);
+        }
+
+        .bg-gradient-orange {
+            background: linear-gradient(135deg, #FB5607 0%, #F97316 100%);
+        }
+
+        .bg-pattern {
+            /* background-image: radial-gradient(#1E40AF 1px, transparent 1px);
+            background-size: 20px 20px; */
+            background-image: radial-gradient(#A1DB3C 1px, #1e40af24 1px);
+            background-size: 10px 10px;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .scrolling-logos {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .scrolling-logos-inner {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        .scrolling-logos img {
+            flex-shrink: 0;
+            margin: 0 2rem;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #1E40AF;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .form-input {
+            border: 1px solid #D1D5DB;
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #1E40AF;
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FB5607 0%, #F97316 100%);
+            color: white;
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(251, 86, 7, 0.3);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-active .faq-answer {
+            max-height: 500px;
+        }
+
+        @media (max-width: 768px) {
+            .scrolling-logos img {
+                height: 40px;
+                margin: 0 1rem;
+            }
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        .bg-pattern {
+            background: radial-gradient(#a1db3c 1px, #1e40af2b 1px);
+            background-size: 10px 10px;
+
+        }
+
+        header {
+            background: url('./assets/hero2.png') no-repeat center center;
+            background-size: cover;
+        }
+
+        .polo-ead {
+            background: url('./assets/polo-ead.png') no-repeat center center;
+            background-size: cover;
+            background-position-y: 70%;
+            position: relative;
+        }
+
+        .polo-bg {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .polo-bg::before,
+        .polo-ead::before {
+            content: '';
+            /* Required for pseudo-elements */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black with 50% opacity */
+            z-index: 1;
+            /* Ensure overlay is above the background image but below content */
+        }
+
+        .polo-bg>*,
+        .polo-ead>* {
+            /* Target content inside the div */
+            position: relative;
+            z-index: 2;
+            /* Ensure content is above the overlay */
+        }
+
+        .absolute.inset-0.bg-pattern-black {
+            background: #004388;
+        }
+
+        @media screen and (max-width: 768px) {
+            header {
+                background-position-x: 85%;
+            }
+        }
+
+        .bg-white-custom {
+            background: #f9f9f9;
+            padding: 10px 0;
+            margin-bottom: 24px;
+        }
+
+        .logo-top {
+            max-height: 60px;
+        }
+
+        .polo-bg {
+            background: url('./assets/polo.png') no-repeat center center;
+            background-size: cover;
+        }
+
+        .market-stats {
+            background: url('./assets/bg_02.png') no-repeat center center;
+            background-size: cover;
+        }
+
+        .portfolio {
+            background-color: #003B78;
+        }
+
+        .bg-blue1 {
+            /* background: #185bd06a; */
+            background: url('./assets/bg1.png') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* .bg-blue1::before {
+    content:''; Required for pseudo-elements
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); 
+    z-index: 1; 
+  } */
+
+        .bg-blue1>* {
+            /* Target content inside the div */
+            position: relative;
+            z-index: 2;
+            /* Ensure content is above the overlay */
+        }
+    </style>
+    <?php wp_head(); ?>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- Header Section -->
+    <header class=" text-white pb-10 lg:pb-20  relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern-black opacity-85 lg:opacity-70"></div>
+        <div class="container max-w-none mx-0 px-4 relative z-10 w-full flex justify-center align-center bg-white-custom">
+            <img src="./assets/logo.png" class="logo-top" alt="">
+        </div>
+        <div class="hero container mx-auto px-4 relative z-10 max-w-[1240px] w-full">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-2/3 mb-10 lg:mb-0 lg:pr-10">
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 animate-fade-in">TRANSFORME SUA VISÃO EMPREENDEDORA EM UM NEGÓCIO DE SUCESSO</h1>
+                    <p class="text-xl lg:text-2xl mb-8">Seja Parceiro da Unisa e Fature Alto no Mercado que mais cresce no Brasil</p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="bg-white text-primary rounded-full px-4 py-2 font-bold">SEM TAXA DE ADESÃO</div>
+                        <div class="bg-white text-primary rounded-full px-4 py-2 font-bold">GANHOS DE ATÉ 50%</div>
+                        <div class="bg-white text-primary rounded-full px-4 py-2 font-bold">SUPORTE COMPLETO</div>
+                    </div>
+                    <p class="text-lg mb-8">O Futuro da Educação Está Aqui. E Você Pode Ser Parte Dele.</p>
+                    <a href="#form" class="btn-primary inline-block">QUERO SER PARCEIRO</a>
+                </div>
+                <div class="lg:w-1/3 hidden justify-center">
+                    <img src="./assets/1.webp" alt="Parceria Unisa" class="rounded-lg floating">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Market Stats Section -->
+    <section class="market-stats py-16 md:pt-16 md:pb-0 bg-gray-50">
+        <div class="container mx-auto px-4 scroll-animate max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">O mercado de Educação a Distância no Brasil movimenta bilhões e não para de crescer.</h2>
+                <p class="text-xl">São mais de <span class="font-bold text-primary">3,3 milhões</span> de novos ingressantes por ano que escolhem a Educação a Distância como modalidade preferida.</p>
+                <p class="text-2xl font-bold mt-10 mb-2">E se você pudesse lucrar com essa revolução educacional?</p>
+                <p class="text-lg max-w-[800px] mx-auto">Com quase 60 anos de tradição e <span class="font-bold text-primary">nota máxima no MEC</span>, a Universidade Santo Amaro - Unisa oferece a oportunidade perfeita para empreendedores visionários construírem um negócio sólido e rentável.</p>
+            </div>
+            <div class="flex justify-center items-center">
+                <div class="hidden md:flex lg:w-1/2 mb-10 lg:mb-0 justify-center items-end">
+                    <img src="./assets/brasil-def.png" alt="Mercado EAD" class="object-cover rounded-lg floating">
+                </div>
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-[400px] w-full mx-auto">
+                        <div class="bg-white p-8 rounded-xl shadow-md text-center card-hover scroll-animate delay-1">
+                            <div class="text-5xl font-bold text-primary mb-4">55+</div>
+                            <h3 class="text-xl font-semibold mb-2">Anos de Tradição</h3>
+                            <p>Nota máxima no MEC - Conceito 5</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-8 my-5 max-w-[400px] w-full mx-auto">
+                        <div class="bg-white p-8 rounded-xl shadow-md text-center card-hover scroll-animate delay-2">
+                            <div class="text-5xl font-bold text-primary mb-4">450+</div>
+                            <h3 class="text-xl font-semibold mb-2">Polos Espalhados</h3>
+                            <p>Pioneira no EAD desde a primeira transmissão via satélite</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-[400px] w-full mx-auto mb-[50px]">
+                        <div class="bg-white p-8 rounded-xl shadow-md text-center card-hover scroll-animate delay-3">
+                            <div class="text-5xl font-bold text-primary mb-4">60+</div>
+                            <h3 class="text-xl font-semibold mb-2">Cursos de Graduação</h3>
+                            <p>Incluindo Engenharia, Arquitetura e Saúde no EAD</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Invest Section -->
+    <section class="polo-ead pt-16 pb-0 text-white">
+        <div class="container mx-auto px-4 scroll-animate max-w-[960px] w-full">
+            <div class="bg-gray-50 p-6 rounded-xl mb-6 text-primary text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4"><i class="fa-thin fa-bullseye-arrow mr-2"></i>POR QUE INVESTIR EM UM POLO EAD UNISA?</h2>
+                <p class="text-xl">Uma oportunidade única para empreendedores visionários</p>
+            </div>
+
+        </div>
+        <div class="container flex flex-col md:flex-row mx-auto px-4 scroll-animate max-w-[1240px] w-full">
+
+            <div class="lg:w-1/2 flex flex-col mb-0 lg:mb-0 lg:pr-10">
+                <!-- <img src="assets/3.webp" class="flex" alt=""> -->
+                <div class="flex-col md:flex-row justify-center items-center">
+                    <div class="mb-8 bg-gray-50 p-6 rounded-xl mb-6 text-primary">
+                        <h3 class="text-2xl font-bold text-primary mb-4">RETORNO FINANCEIRO REAL</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Ganhos de até <span class="font-bold">50%</span> do valor pago pelo aluno</li>
+                            <li><span class="font-bold">4 entradas</span> por ano = mais oportunidades de captação</li>
+                            <li>Múltiplas fontes de receita: Graduação, Pós e Cursos Livres</li>
+                            <li>Exemplo prático: <span class="font-bold">R$ 45.000</span> de receita bruta no primeiro ano com apenas 48 alunos*</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl mb-6 text-primary mb-8">
+                        <h3 class="text-2xl font-bold text-primary mb-4">ZERO TAXA DE ADESÃO</h3>
+                        <p>Diferente de outras instituições, aqui você <span class="font-bold">não paga nada</span> para se tornar parceiro. Todo o investimento vai direto para o seu negócio.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="md:mx-10 lg:w-1/2 flex justify-center items-center mb-10 lg:mb-0">
+
+
+                <div class="w-full bg-gray-50 p-6 rounded-xl mb-6 text-primary">
+                    <h3 class="text-2xl font-bold text-primary mb-4">APOIO TOTAL PARA SEU SUCESSO</h3>
+                    <div class="">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                <i class="fas fa-bullhorn text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Marketing dedicado</h4>
+                                <p>Campanhas e materiais prontos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Executivos Dedicados</h4>
+                                <p>Time comercial focado no sucesso do seu negócio</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Sistema Mercado</h4>
+                                <p>Ferramenta exclusiva para precificação competitiva</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                <i class="fas fa-award text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Programa Unisa Valoriza</h4>
+                                <p>Ganhe até 10% a mais pelos seus resultados</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                <i class="fas fa-award text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Estudos Exclusivos</h4>
+                                <p>Avaliações de mercado e demandas para cada ação estratégica</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio py-16 ">
+        <div class="container mx-auto px-4 scroll-animate max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4 text-white">A FORÇA DA MARCA UNISA</h2>
+                <!-- <p class="text-xl">Tradição que inspira confiança</p> -->
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl text-center font-bold text-white mb-6">TRADIÇÃO QUE INSPIRA CONFIANÇA</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Quase 60 anos</div>
+                            <p>de história de inovação</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Nota máxima no MEC</div>
+                            <p>Conceito 5</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Pioneira no EAD</div>
+                            <p>desde a transmissão via satélite</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">+450 Polos</div>
+                            <p>em todo o Brasil</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl text-center font-bold text-white mb-6">PORTFÓLIO COMPLETO</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">+60</div>
+                            <p>Cursos de Graduação EAD</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">+100</div>
+                            <p>Cursos de Pós-Graduação</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">+600</div>
+                            <p>Cursos Livres</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Diferenciais Únicos</div>
+                            <p>Engenharia, Arquitetura e Saúde no EAD</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="flex justify-center items-center gap-12 mx-auto">
+                <div class="bg-gray-50 p-6 rounded-xl mb-6 text-primary shadow-xl">
+                    <h3 class="text-2xl font-bold text-primary mb-6">INOVAÇÃO QUE FAZ A DIFERENÇA</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-flask text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Lab Presente</h4>
+                                <p>Aulas práticas de Engenharia que vão até seu polo</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                <i class="fas fa-microscope text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Hubs Educacionais</h4>
+                                <p>Laboratórios avançados para seus alunos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                <i class="fas fa-video text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">9.000+ vídeos</h4>
+                                <p>No ambiente virtual de aprendizagem</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                <i class="fas fa-route text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Trilhas Interativas</h4>
+                                <p>Metodologia inovadora de aprendizagem</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+    </section>
+
+    <!-- Earnings Potential Section -->
+    <section class="py-16 bg-blue1 bg-pattern">
+        <div class="container mx-auto px-4 max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">POTENCIAL DE GANHO REAL</h2>
+                <p class="text-xl">Cenário conservador - 1º ANO</p>
+            </div>
+
+            <div class="hidden md:block">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden mb-8 shadow-md">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Período</th>
+                            <th class="py-3 px-4 text-center">Alunos</th>
+                            <th class="py-3 px-4 text-center">Mensalidade Média</th>
+                            <th class="py-3 px-4 text-center">Sua Receita (50%)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="py-3 px-4">Jan-Dez</td>
+                            <td class="py-3 px-4 text-center">12</td>
+                            <td class="py-3 px-4 text-center">R$ 250</td>
+                            <td class="py-3 px-4 text-center font-bold">R$ 18.000</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-3 px-4">Abr-Dez</td>
+                            <td class="py-3 px-4 text-center">24</td>
+                            <td class="py-3 px-4 text-center">R$ 250</td>
+                            <td class="py-3 px-4 text-center font-bold">R$ 13.500</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4">Jul-Dez</td>
+                            <td class="py-3 px-4 text-center">36</td>
+                            <td class="py-3 px-4 text-center">R$ 250</td>
+                            <td class="py-3 px-4 text-center font-bold">R$ 9.000</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-3 px-4">Out-Dez</td>
+                            <td class="py-3 px-4 text-center">48</td>
+                            <td class="py-3 px-4 text-center">R$ 250</td>
+                            <td class="py-3 px-4 text-center font-bold">R$ 4.500</td>
+                        </tr>
+                        <tr class="bg-primary text-white font-bold">
+                            <td class="py-3 px-4 rounded-bl-lg">TOTAL ANO 1</td>
+                            <td class="py-3 px-4 text-center">48</td>
+                            <td class="py-3 px-4 text-center">-</td>
+                            <td class="py-3 px-4 text-center rounded-br-lg">R$ 45.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="block md:hidden space-y-4 mb-8">
+
+                <div class="bg-white rounded-lg p-4 shadow-xl">
+                    <div class="font-bold text-lg mb-2">Período: Jan-Dez</div>
+                    <div class="space-y-2 text-gray-700">
+                        <div class="flex justify-between items-center"><span>Alunos:</span> <span class="font-semibold">12</span></div>
+                        <div class="flex justify-between items-center"><span>Mensalidade Média:</span> <span class="font-semibold">R$ 250</span></div>
+                    </div>
+                    <div class="flex justify-between items-center pt-3 mt-3 border-t">
+                        <span class="font-bold">Sua Receita:</span>
+                        <span class="font-bold text-primary text-lg">R$ 18.000</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-4 shadow-xl">
+                    <div class="font-bold text-lg mb-2">Período: Abr-Dez</div>
+                    <div class="space-y-2 text-gray-700">
+                        <div class="flex justify-between items-center"><span>Alunos:</span> <span class="font-semibold">24</span></div>
+                        <div class="flex justify-between items-center"><span>Mensalidade Média:</span> <span class="font-semibold">R$ 250</span></div>
+                    </div>
+                    <div class="flex justify-between items-center pt-3 mt-3 border-t">
+                        <span class="font-bold">Sua Receita:</span>
+                        <span class="font-bold text-primary text-lg">R$ 13.500</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-4 shadow-xl">
+                    <div class="font-bold text-lg mb-2">Período: Jul-Dez</div>
+                    <div class="space-y-2 text-gray-700">
+                        <div class="flex justify-between items-center"><span>Alunos:</span> <span class="font-semibold">36</span></div>
+                        <div class="flex justify-between items-center"><span>Mensalidade Média:</span> <span class="font-semibold">R$ 250</span></div>
+                    </div>
+                    <div class="flex justify-between items-center pt-3 mt-3 border-t">
+                        <span class="font-bold">Sua Receita:</span>
+                        <span class="font-bold text-primary text-lg">R$ 9.000</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-4 shadow-xl">
+                    <div class="font-bold text-lg mb-2">Período: Out-Dez</div>
+                    <div class="space-y-2 text-gray-700">
+                        <div class="flex justify-between items-center"><span>Alunos:</span> <span class="font-semibold">48</span></div>
+                        <div class="flex justify-between items-center"><span>Mensalidade Média:</span> <span class="font-semibold">R$ 250</span></div>
+                    </div>
+                    <div class="flex justify-between items-center pt-3 mt-3 border-t">
+                        <span class="font-bold">Sua Receita:</span>
+                        <span class="font-bold text-primary text-lg">R$ 4.500</span>
+                    </div>
+                </div>
+
+                <div class="bg-primary text-white rounded-lg p-4 shadow-lg font-bold">
+                    <div class="text-lg mb-2">TOTAL ANO 1</div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span>Total de Alunos:</span>
+                        <span>48</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-3 mt-3 border-t border-white/30 text-xl">
+                        <span>Receita Total:</span>
+                        <span>R$ 45.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <p class="text-lg">E isso é só o começo. Polos consolidados faturam muito mais.</p>
+            </div>
+        </div>
+    </section>
+    <section class="hidden py-16 bg-white bg-pattern">
+        <div class="container mx-auto px-4 max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">POTENCIAL DE GANHO REAL</h2>
+                <p class="text-xl">Cenário conservador - 1º ANO</p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden mb-8">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Período</th>
+                            <th class="py-3 px-4 text-center">Alunos</th>
+                            <th class="py-3 px-4 text-center">Mensalidade Média</th>
+                            <th class="py-3 px-4 text-center">Sua Receita (50%)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="py-3 px-4">Jan-Dez</td>
+                            <td class="py-3 px-4 text-center">12</td>
+                            <td class="py-3 px-4 text-center">R$ 250</td>
+                            <td class="py-3 px-4 text-center font-bold">R$ 18.000</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-3 px-4">Abr-Dez</td>
+                            <td class="py-3 px-4 text-center">24</td>
+                            <td class="py-3 px-4 text-center">R$ 250</td>
+                            <td class="py-3 px-4 text-center font-bold">R$ 13.500</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4">Jul-Dez</td>
+                            <td class="py-3 px-4 text-center">36</td>
+                            <td class="py-3 px-4 text-center">R$ 250</td>
+                            <td class="py-3 px-4 text-center font-bold">R$ 9.000</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-3 px-4">Out-Dez</td>
+                            <td class="py-3 px-4 text-center">48</td>
+                            <td class="py-3 px-4 text-center">R$ 250</td>
+                            <td class="py-3 px-4 text-center font-bold">R$ 4.500</td>
+                        </tr>
+                        <tr class="bg-primary text-white font-bold">
+                            <td class="py-3 px-4">TOTAL ANO 1</td>
+                            <td class="py-3 px-4 text-center">48</td>
+                            <td class="py-3 px-4 text-center">-</td>
+                            <td class="py-3 px-4 text-center">R$ 45.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center">
+                <p class="text-lg">E isso é só o começo. Polos consolidados faturam muito mais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="polo-bg py-16 bg-gray-50">
+        <div class=" container mx-auto px-4 max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-white text-3xl lg:text-4xl font-bold mb-4">TRÊS CATEGORIAS, INFINITAS POSSIBILIDADES</h2>
+                <p class="text-xl text-white">Escolha o modelo que melhor se adapta ao seu negócio</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md text-center card-hover">
+                    <div class="text-accent text-4xl mb-4">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">LIGHT - Comece do Básico</h3>
+                    <p class="mb-6">Infraestrutura mínima para iniciar suas operações</p>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Acesso a todos os cursos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Suporte básico</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Material de marketing</span>
+                        </li>
+                    </ul>
+                    <a href="#form" class="btn-primary inline-block">ESCOLHER ESTE</a>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md text-center card-hover border-2 border-primary transform scale-105">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">PLUS - Acelere o Crescimento</h3>
+                    <p class="mb-6">Receba o Lab Presente e amplie sua oferta</p>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Todos os benefícios Light</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Lab Presente para aulas práticas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Suporte prioritário</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Campanhas personalizadas</span>
+                        </li>
+                    </ul>
+                    <a href="#form" class="btn-primary inline-block">ESCOLHER ESTE</a>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md text-center card-hover">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">PREMIUM - Máximo Potencial</h3>
+                    <p class="mb-6">Acesso completo a todos os diferenciais Unisa</p>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Todos os benefícios Plus</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Acesso a Hubs Educacionais</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Consultoria empresarial</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                            <span>Programa de bonificação exclusivo</span>
+                        </li>
+                    </ul>
+                    <a href="#form" class="btn-primary inline-block">ESCOLHER ESTE</a>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-white text-lg">Você pode fazer upgrade a qualquer momento conforme seu negócio cresce.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 bg-white bg-pattern">
+        <div class="container mx-auto px-4 max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">PROCESSO SIMPLES E RÁPIDO</h2>
+                <p class="text-xl">EM APENAS 20 DIAS SEU POLO ESTÁ FUNCIONANDO</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-7 gap-4 mb-16 relative">
+                <div class="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 transform -translate-y-1/2 hidden md:block" style="top:47% !important"></div>
+
+                <div class="relative z-10 text-center">
+                    <div class="step-number mx-auto">1</div>
+                    <p class="font-semibold">Envie a documentação</p>
+                    <p class="text-sm">(simples e direto)</p>
+                </div>
+
+                <div class="relative z-10 text-center">
+                    <div class="step-number mx-auto">2</div>
+                    <p class="font-semibold">Validação jurídica</p>
+                    <p class="text-sm">(cuidamos de tudo)</p>
+                </div>
+
+                <div class="relative z-10 text-center">
+                    <div class="step-number mx-auto">3</div>
+                    <p class="font-semibold">Aprovação da infraestrutura</p>
+                    <p class="text-sm">(flexível)</p>
+                </div>
+
+                <div class="relative z-10 text-center">
+                    <div class="step-number mx-auto">4</div>
+                    <p class="font-semibold">Assinatura eletrônica</p>
+                    <p class="text-sm">(sem burocracia)</p>
+                </div>
+
+                <div class="relative z-10 text-center">
+                    <div class="step-number mx-auto">5</div>
+                    <p class="font-semibold">Configuração dos sistemas</p>
+                    <p class="text-sm">(suporte total)</p>
+                </div>
+
+                <div class="relative z-10 text-center">
+                    <div class="step-number mx-auto">6</div>
+                    <p class="font-semibold">Treinamento da equipe</p>
+                    <p class="text-sm">(você estará preparado)</p>
+                </div>
+
+                <div class="relative z-10 text-center">
+                    <div class="step-number mx-auto bg-accent">7</div>
+                    <p class="font-semibold">INÍCIO DAS ATIVIDADES</p>
+                    <p class="text-sm">🎉</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#form" class="btn-primary inline-block">INICIAR PROCESSO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Growth Section -->
+    <section class="py-16 bg-secondary text-white">
+        <div class="container mx-auto px-4 max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4"></i>O MERCADO QUE NÃO PARA DE CRESCER</h2>
+                <p class="text-xl">DADOS QUE COMPROVAM A OPORTUNIDADE:</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-start md:text-center">
+                    <div class=" text-5xl font-bold mb-4">+3,3M</div>
+                    <p>novos ingressantes no EAD por ano</p>
+                </div>
+
+                <div class="text-start md:text-center">
+                    <!-- <div class=" text-5xl font-bold mb-4">40%</div> -->
+                    <p class="text-xl font-bold">Modalidade deve ultrapassar a presencial no próximo Censo</p>
+                </div>
+
+                <div class="text-start md:text-center">
+                    <!-- <div class=" text-5xl font-bold mb-4">100%</div> -->
+                    <p class="text-xl font-bold">Tendência irreversível pós-pandemia</p>
+                </div>
+
+                <div class="text-start md:text-center">
+                    <!-- <div class=" text-5xl font-bold mb-4">∞</div> -->
+                    <p class="text-xl font-bold">Profissionais buscam qualificação constante</p>
+                </div>
+                <div class="text-start md:text-center">
+                    <!-- <div class=" text-5xl font-bold mb-4">∞</div> -->
+                    <p class="text-xl font-bold">Empresas investindo na capacitação de equipes</p>
+                </div>
+                <div class="text-start md:text-center">
+                    <!-- <div class=" text-5xl font-bold mb-4">∞</div> -->
+                    <p class="text-xl font-bold">Pessoas em busca de flexibilidade para estudar</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-2xl font-bold">Você vai ficar de fora dessa revolução?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ideal Profile Section -->
+    <section class="py-16 bg-white bg-pattern">
+        <div class="container mx-auto px-4 max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">VOCÊ É O PERFIL IDEAL SE...</h2>
+            </div>
+
+            <div class="px-[60px] lg:px-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="flex items-start hovered-element">
+                    <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 hovered-element">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Já atua na educação</h3>
+                        <p>e quer ampliar receitas</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start hovered-element">
+                    <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 hovered-element">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">É empreendedor</h3>
+                        <p>em busca de negócios sólidos</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start hovered-element">
+                    <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 hovered-element">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Tem visão de futuro</h3>
+                        <p>e enxerga o potencial da EAD</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start hovered-element">
+                    <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 hovered-element">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Quer uma marca forte</h3>
+                        <p>trabalhando a seu favor</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start hovered-element">
+                    <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 hovered-element">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Busca suporte real</h3>
+                        <p>para construir sucesso</p>
+                    </div>
+                </div>
+
+                <!-- <div class="flex items-start hovered-element">
+                    <div class="bg-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 hovered-element">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Deseja diversificar</h3>
+                        <p>seus investimentos</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 scroll-animate max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">DIFERENCIAIS EXCLUSIVOS UNISA</h2>
+                <!-- <p class="text-xl">Tradição que inspira confiança</p> -->
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl text-center font-bold text-primary mb-6">PARA SEU NEGÓCIO</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Sem taxa de adesão</div>
+                            <p>comece sem pagar nada</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Sistema Mercado</div>
+                            <p>Precificação inteligente e competitiva</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Múltiplas Entradas</div>
+                            <p>4 oportunidades por ano para captar</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Programa de Valorização</div>
+                            <p>Ganhe mais pelos seus resultados</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl text-center font-bold text-primary mb-6">PARA SEUS ALUNOS</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Cursos únicos</div>
+                            <p>como Engenharia e Arquitetura Ead
+                            </p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Metodologia inovadora</div>
+                            <p>com trilhas de aprendizagem</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Aulas práticas</div>
+                            <p>que ampliam sua vivência</p>
+                        </div>
+                        <div class="shadow-xl bg-white p-4 rounded-lg text-center flex flex-col justify-center">
+                            <div class="text-2xl font-bold text-primary mb-2">Diploma reconhecido</div>
+                            <p>de uma universidade nota máxima</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4"><i class="fa-thin fa-hourglass-clock mr-2"></i>ESTA É SUA OPORTUNIDADE</h2>
+                <p class="text-xl  mx-auto">O mercado de EAD está explodindo. A Unisa está expandindo. Mas as vagas para novos parceiros são limitadas.</p>
+                <p class="text-lg  mx-auto mt-4">Cada região pode ter apenas um número restrito de polos para garantir o sucesso de todos os parceiros.</p>
+                <p class="text-lg font-bold  mx-auto mt-4">Não deixe outro empreendedor ocupar sua posição no mercado.</p>
+                <a href="#form" class=" mt-5 btn-primary inline-block">QUERO RECEBER MAIS INFORMAÇÕES</a>
+            </div>
+
+            <div class="hidden max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl" id="form">
+                <h3 class="text-2xl font-bold text-center mb-8"></i>QUERO SER PARCEIRO UNISA</h3>
+                <p class="text-center mb-8">Preencha o formulário e nossa equipe entrará em contato em até 24h para apresentar todos os detalhes da parceria.</p>
+
+
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nome Completo*</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">E-mail*</label>
+                        <input type="email" class="form-input" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Telefone/WhatsApp*</label>
+                        <input type="tel" class="form-input" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Cidade onde pretende abrir o polo*</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Já possui infraestrutura educacional?*</label>
+                        <div class="mt-2 space-y-2">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="infra" value="sim" class="form-radio text-primary">
+                                <span class="ml-2">Sim, tenho escola/curso</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="infra" value="nao" class="form-radio text-primary">
+                                <span class="ml-2">Não, pretendo investir do zero</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Qual seu interesse principal?*</label>
+                        <div class="mt-2 space-y-2">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="interest" value="ampliar" class="form-radio text-primary">
+                                <span class="ml-2">Ampliar receita do negócio atual</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="interest" value="primeiro" class="form-radio text-primary">
+                                <span class="ml-2">Primeiro investimento na educação</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="interest" value="expandir" class="form-radio text-primary">
+                                <span class="ml-2">Expandir portfólio educacional</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Observações (opcional)</label>
+                        <textarea class="form-input" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full">QUERO RECEBER MAIS INFORMAÇÕES</button>
+                </form>
+
+                <div class="mt-8 text-center">
+                    <p class="font-semibold">Ou entre em contato direto:</p>
+                    <p class="mt-2"><i class="fas fa-phone-alt mr-2"></i> WhatsApp: (11) 2141-8555</p>
+                    <p class="mt-1"><i class="fas fa-envelope mr-2"></i> E-mail: comercial@unisa.br</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white bg-pattern">
+        <div class="container mx-auto px-4 max-w-[1240px] w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">PERGUNTAS FREQUENTES</h2>
+            </div>
+
+            <div class=" mx-auto">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="text-lg font-semibold">Preciso ter experiência na área educacional?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="py-4">Não é obrigatório. Oferecemos treinamento completo e suporte contínuo</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="text-lg font-semibold">Qual o investimento inicial necessário?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="py-4">Não há taxa de adesão. Para a infraestrutura, depende da categoria escolhida. Temos opções para diferentes orçamentos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="text-lg font-semibold">Como funciona a divisão de receita?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="py-4">Você fica com até 50% do valor pago pelo aluno, sem taxa de franquia.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="text-lg font-semibold">Quantos polos posso ter?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="py-4">Não há limite. Muitos parceiros expandem para múltiplas cidades.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="text-lg font-semibold">E se eu já tiver outra instituição?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="py-4">Sem problema, desde que não seja no mesmo local.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-xl font-semibold mb-6">Esta pode ser sua chance de construir um negócio de sucesso no mercado que mais cresce no Brasil. Não perca tempo.</p>
+                <a href="#form" class="btn-primary inline-block">SIM, QUERO SER PARCEIRO UNISA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4 max-w-[1240px] w-full">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-4">Universidade Santo Amaro - Unisa</h3>
+                    <p>Tradição que conecta você ao futuro</p>
+                </div>
+
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/unisaoficial/?locale=pt_BR" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/unisaoficial/" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://br.linkedin.com/school/universidade-de-santo-amaro/" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@UnisaOficial" class="bg-white text-primary hover:bg-accent rounded-full w-10 h-10 flex items-center justify-center transition-colors hovered-element">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>© 2023 Universidade Santo Amaro - Unisa. Todos os direitos reservados.</p>
+                <p class="mt-2"><a href="https://www.unisa.br/">www.unisa.br</a> | <a href="https://www.instagram.com/unisaoficial/" class="">
+                        @unisaoficial </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popup Modal -->
+    <div id="popup-form-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 hidden">
+        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full p-8 relative animate-fade-in">
+            <button id="close-popup-form" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl font-bold" aria-label="Fechar">&times;</button>
+            <h3 class="text-2xl font-bold text-center mb-6">QUERO SER PARCEIRO UNISA</h3>
+            <?php echo do_shortcode('[gravityform id="7" title="true"]'); ?>
+        </div>
+    </div>
+
+    <script>
+        // Popup logic
+        document.querySelectorAll('a[href="#form"], button[href="#form"]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('popup-form-modal').classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            });
+        });
+
+        document.getElementById('close-popup-form').addEventListener('click', function() {
+            document.getElementById('popup-form-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        });
+
+        document.getElementById('popup-form-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        });
+    </script>
+    <script>
+        // Scroll animation observer
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.scroll-animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(element => observer.observe(element));
+        };
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', animateOnScroll);
+
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('faq-active');
+
+                const icon = question.querySelector('i');
+                if (item.classList.contains('faq-active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado pelo seu interesse! Nossa equipe entrará em contato em até 24 horas.');
+            this.reset();
+        });
+        // Counter animation
+        // ...existing code...
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            if (!counters.length) return;
+
+            const duration = 3500; // 3.5 segundos
+
+            // Descubra o maior valor de destino (exceto o infinito)
+            let maxTarget = 0;
+            counters.forEach((counter, idx) => {
+                let original = counter.textContent.trim();
+                if (idx === counters.length - 1) return; // ignore o último (∞)
+                let target = parseInt(original.replace(/\D/g, '')) || 0;
+                if (target > maxTarget) maxTarget = target;
+            });
+
+            // O último contador (infinito) vai até 9999
+            let infinityTarget = 9999;
+            if (maxTarget < infinityTarget) maxTarget = infinityTarget;
+
+            counters.forEach((counter, idx) => {
+                let started = false;
+                let original = counter.textContent.trim();
+                let isInfinity = (idx === counters.length - 1);
+
+                // Detect sufixos
+                let hasPlus = original.endsWith('+');
+                let hasPercent = original.endsWith('%');
+                let hasM = original.toUpperCase().includes('M');
+                let hasK = original.toUpperCase().includes('K');
+
+                let target = 0;
+                if (isInfinity) {
+                    target = infinityTarget;
+                } else {
+                    target = parseInt(original.replace(/\D/g, '')) || 0;
+                }
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !started) {
+                            started = true;
+                            let startTime = null;
+
+                            function animate(now) {
+                                if (!startTime) startTime = now;
+                                let elapsed = now - startTime;
+                                let progress = Math.min(elapsed / duration, 1);
+                                let displayValue;
+
+                                if (isInfinity) {
+                                    let proportional = Math.round(progress * target);
+                                    displayValue = proportional;
+                                    if (progress < 1) {
+                                        counter.textContent = displayValue;
+                                        requestAnimationFrame(animate);
+                                    } else {
+                                        counter.textContent = original;
+                                    }
+                                } else {
+                                    let proportional = Math.round(progress * target);
+                                    if (proportional > target) proportional = target;
+                                    displayValue = proportional;
+                                    if (hasM) displayValue += 'M';
+                                    if (hasK) displayValue += 'K';
+                                    if (hasPercent) displayValue += '%';
+                                    if (hasPlus) displayValue += '+';
+                                    if (progress < 1) {
+                                        counter.textContent = displayValue;
+                                        requestAnimationFrame(animate);
+                                    } else {
+                                        counter.textContent = original;
+                                    }
+                                }
+                            }
+                            requestAnimationFrame(animate);
+                            observer.unobserve(counter);
+                        }
+                    });
+                }, {
+                    threshold: 0.6
+                });
+                observer.observe(counter);
+            });
+        }
+        // ...existing code...
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+            animateCounters();
+        });
+    </script>
+    <?php wp_footer(); ?>
+</body>
+
+</html>
